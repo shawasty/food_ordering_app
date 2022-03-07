@@ -38,44 +38,49 @@ router.put("/:id", verifyTokenAndAdmin, async (req, res) => {
 });
 
 
-// //DELETE
+//DELETE
 
-// router.delete("/:id", verifyTokenAndAuthorization, async (req, res) => {
-//     try {
-//       await User.findByIdAndDelete(req.params.id);
-//       res.status(200).json("User has been deleted !!");
-//     } catch (err) {
-//       res.status(500).json(err);
-//     }
-//   });
+router.delete("/:id", verifyTokenAndAdmin, async (req, res) => {
+    try {
+      await Meal.findByIdAndDelete(req.params.id);
+      res.status(200).json("Meal has been deleted !!");
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
   
-//   // GET USER
-// router.get("/find/:id", verifyTokenAndAdmin, async (req, res) => {
-//       try {
-//         const user = await User.findById(req.params.id);
-//         // to prevent revealing all info , do this
-//         const { password, ...others} = user._doc;
-//         res.status(200).json(others);
+  // GET MEAL
+router.get("/find/:id", async (req, res) => {
+      try {
+        const meal = await Meal.findById(req.params.id);
+        res.status(200).json(meal);
 
-//       } catch (err) {
-//         res.status(500).json(err);
-//       }
-//     });
+      } catch (err) {
+        res.status(500).json(err);
+      }
+    });
 
-//  // GET ALL USERS
-//  router.get("/", verifyTokenAndAdmin, async (req, res) => {
-//      // to get for example only the first 5 new users with a querry
-//      const query = req.query.new;
-//     try {
-//       const users = query
-//        ? await User.find().sort({_id: -1}).limit(5)
-//        : await User.find();
-//       res.status(200).json(users);
+ // GET ALL MEALS
+ router.get("/",async (req, res) => {
+     // to get for example only the first 5 new users with a querry
+     const qNew = req.query.new;
+     const qCategory = req.query.category;
+    try {
+        let meals;
+        if (qNew){
+            meals = await Meal.find().sort({createdAt: -1}).limit(5)
+        } else if (qCategory){
+            meals = await Meal.find({category:{$in: qCategory}})
+        }else {
+            meals = await Meal.find();
+        }
+        res.status(200).json(meals);
 
-//     } catch (err) {
-//       res.status(500).json(err);
-//     }
-//   });
+
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
 
 //   // GET USER STATS, eg total no. per weekly,monthly etc
 
