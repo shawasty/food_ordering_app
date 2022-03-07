@@ -29,5 +29,19 @@ const verifyTokenAndAuthorization = (req,res,next)=>{
         }
     })
 }
+// creating access for admin to modify something.
+const verifyTokenAndAdmin = (req,res,next)=>{
+    verifyToken(req,res,()=>{
+        if(req.user.isAdmin){
+            next();   
+        } else{
+            res.status(402).json('you are not allowed')
+        }
+    })
+}
 
-module.exports = {verifyToken, verifyTokenAndAuthorization}
+module.exports = {
+    verifyToken, 
+    verifyTokenAndAuthorization,
+    verifyTokenAndAdmin
+}
