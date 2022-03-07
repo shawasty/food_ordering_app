@@ -1,14 +1,38 @@
 const {Router} = require('express');
-// const controllers = require('../controllers')
+const User = require('../models/user');
 const router = Router();
-//Read of CRUD
-router.get('/usertest',(req,res)=> res.send('usertest is successful'))
+const { verifyToken, verifyTokenAndAuthorization } = require('./verifyToken');
+// const controllers = require('../controllers')
 
-router.post("/userposttest",(req,res)=>{
-    const username = req.body.username
-    res.send('complete')
+
+
+//UPDATE
+// decide if token is for admin or user
+// if(req.user.id === req.params.id || req.user.isAdmin){
+// create a function in verifytoken
+// }
+router.put("/:id",verifyTokenAndAuthorization, async (req,res)=>{
+    if(req.boby.password) {
+        //encrypt jsut like in auth
+        req.boby.password = CryptoJS.AES.encrypt(req.body.password,
+         process.env.PASS_SECR_KEY).toString();
+    }
+
+    try {
+        const updatedUser = await User.findByIdAndUpdate(req.params.id, {
+            $set : req.body,
+        },
+        { new : true }
+        );
+        res.status(200).json(updatedUser)
+        
+    } catch (err) {
+        res.status(500).json(err);
+        
+    }
+
 })
-// router.post('/plants')
+//create a verify token 
 
 
 module.exports = router;
