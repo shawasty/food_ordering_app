@@ -1,6 +1,7 @@
 const {Router} = require('express');
 const User = require('../models/user');
 const router = Router();
+const CryptoJS = require("crypto-js");
 const { verifyToken, verifyTokenAndAuthorization } = require('./verifyToken');
 // const controllers = require('../controllers')
 
@@ -12,9 +13,9 @@ const { verifyToken, verifyTokenAndAuthorization } = require('./verifyToken');
 // create a function in verifytoken
 // }
 router.put("/:id",verifyTokenAndAuthorization, async (req,res)=>{
-    if(req.boby.password) {
+    if(req.body.password) {
         //encrypt jsut like in auth
-        req.boby.password = CryptoJS.AES.encrypt(req.body.password,
+        req.body.password = CryptoJS.AES.encrypt(req.body.password,
          process.env.PASS_SECR_KEY).toString();
     }
 
