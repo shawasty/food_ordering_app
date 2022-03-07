@@ -5,12 +5,14 @@ const dotenv = require("dotenv");
 
 const UserRoute = require('./routes/userRoute');
 const AuthRoute = require('./routes/auth');
-// const logger = require 
+const MealRoute = require('./routes/mealRoute');
+
 
 const PORT = process.env.PORT || 3005;
 app.use(express.json());
 app.use("/api/users", UserRoute);
 app.use("/api/auth", AuthRoute);
+app.use("/api/meals", MealRoute);
 
 
 
