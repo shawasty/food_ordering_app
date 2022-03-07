@@ -1,0 +1,23 @@
+{
+  "name": "food_ordering_app",
+  "version": "1.0.0",
+  "description": "An e-commerce app for ordering African food",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shawasty/food_ordering_app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shawasty/food_ordering_app/issues"
+  },
+  "homepage": "https://github.com/shawasty/food_ordering_app#readme",
+  "dependencies": {
+    "mongoose": "^6.2.4"
+  }
+}
