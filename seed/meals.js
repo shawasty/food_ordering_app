@@ -7,11 +7,11 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 const main = async() => {
   
     const meals = [
-        {name: 'WAAKYE' ,category: 'LUNCH' , image: '../media/images/waakye.jpeg' , calories: '50.00 cal', price: '$15'},
-        {name: 'BANKU' ,category: 'SUPER' , image: '../media/images/banku.jpeg' , calories: '35.00 cal', price: '$25'},
-        {name: 'JOLLOF' ,category: 'LUNCH' , image: '../media/images/jollof.jpeg' , calories: '50.00 cal', price: '$20'},
-        {name: 'FULA' ,category: 'BREAKFAST' , image: '../media/images/fula.jpeg' , calories: '30.00 cal', price: '$10'},
-        {name: 'KOKO' ,category: 'BREAKFAST' , image: '../media/images/koko.jpeg' , calories: '30.00 cal', price: '$12'}
+        {name: 'WAAKYE' ,category: 'LUNCH' , image: '../media/images/waakye.jpeg' , calories: '50.00', price: '$15'},
+        {name: 'BANKU' ,category: 'SUPER' , image: '../media/images/banku.jpeg' , calories: '35.00 ', price: '$25'},
+        {name: 'JOLLOF' ,category: 'LUNCH' , image: '../media/images/jollof.jpeg' , calories: '50.00 ', price: '$20'},
+        {name: 'FULA' ,category: 'BREAKFAST' , image: '../media/images/fula.jpeg' , calories: '30.00', price: '$10'},
+        {name: 'KOKO' ,category: 'BREAKFAST' , image: '../media/images/koko.jpeg' , calories: '30.00', price: '$12'}
   ]
   
 
