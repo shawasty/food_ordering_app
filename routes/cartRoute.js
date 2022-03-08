@@ -66,7 +66,7 @@ router.get("/find/:userId",verifyTokenAndAuthorization, async (req, res) => {
     
     try {
 
-        const carts = await.Cart.find();
+        const carts = await Cart.find();
         res.status(200).json(carts);
 
     } catch (err) {
