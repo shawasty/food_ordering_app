@@ -26,9 +26,9 @@ app.use("/api/meals", MealRoute);
 app.use("/api/carts", CartRoute);
 app.use("/api/orders", OrderRoute);
 
-app.get("/",(req, res)=>{
-    res.send("This is the root")
-})
+// app.get("/",(req, res)=>{
+//     res.send("This is the root")
+// })
 
 
 db.on('error', console.error.bind(console, 'MongoDB connection error:'))
