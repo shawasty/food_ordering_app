@@ -5,8 +5,8 @@ logInForm.addEventListener('submit',logInUser);
 
 async function logInUser(ev){
     ev.preventDefault();
-    const username = document.getElementById('username');
-    const password = document.getElementById('password');
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
 
     const result = await fetch('/api/auth/login', {
         method: 'POST',
@@ -20,7 +20,7 @@ async function logInUser(ev){
     }).then((res)=> res.json())
 
     if (result){
-        console.log({body.username,password})
+        console.log(result)
 
     } else {
        console.log('err')
