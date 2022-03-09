@@ -3,6 +3,8 @@ const form  = document.getElementById("reg_form");
 
 
 
+//Register
+
 form.addEventListener('submit',registerUser);
 
 async function registerUser(event){
@@ -25,3 +27,7 @@ async function registerUser(event){
     }).then((res)=> res.json());
     console.log(result)
 }
+// LOGIN USER
+
+
+

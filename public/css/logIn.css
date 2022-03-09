@@ -1,4 +1,10 @@
-
+body {
+    color: #fff;
+    /* background: #d8b2e6; */
+    background-image: url(https://cdn.wallpapersafari.com/20/74/xVqyYu.jpg);
+    font-family: 'Roboto', sans-serif;
+    background-size:cover;
+}
 	.login-form {
 		width: 340px;
     	margin: 50px auto;
@@ -11,6 +17,7 @@
     }
     .login-form h2 {
         margin: 0 0 15px;
+        color: #333;
     }
     .form-control, .btn {
         min-height: 38px;
@@ -19,4 +26,13 @@
     .btn {        
         font-size: 15px;
         font-weight: bold;
+        background: #f12a3b;
+        
     }
+    /* .login-form .btn{        
+        font-size: 16px;
+        font-weight: bold;
+        background: #f12a3b;
+        border: none;
+        min-width: 140px;
+    } */
