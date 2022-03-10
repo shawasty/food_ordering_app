@@ -20,12 +20,14 @@ router.post("/register", async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
+  console.log(req.body)
 });
 
 //LOGIN
 
 router.post("/login", async (req,res) =>{
     try {
+      console.log(req.body)
         const user = await User.findOne({username: req.body.username });
         !user && res.status(401).json("Wrong credentials !!!")
 
@@ -53,4 +55,4 @@ router.post("/login", async (req,res) =>{
 })
 module.exports = router;
 
-// use jwt for authentication
+// use jwt for authenticationgit

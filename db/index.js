@@ -13,3 +13,6 @@ mongoose.connect(process.env.MONGO_URL, {useUnifiedTopology:true, useNewUrlParse
 const db = mongoose.connection
 
 module.exports = db
+
+
+
